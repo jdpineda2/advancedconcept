@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "775510601297",
+    "project_id": "advancedconceptsapp",
+    "storage_bucket": "advancedconceptsapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775510601297:android:564c49a5454afd3a609270",
+        "android_client_info": {
+          "package_name": "com.example.advancedconceptsapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB2V7JasY6AQjd6Rd2d6xj98gRdXj2YrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775510601297:android:613babdb1132f105609270",
+        "android_client_info": {
+          "package_name": "com.example.advancedconceptsapp.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB2V7JasY6AQjd6Rd2d6xj98gRdXj2YrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
