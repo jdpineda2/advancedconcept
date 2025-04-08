@@ -29,6 +29,13 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro" // Our custom rules file
             )
+            firebaseAppDistribution {
+                appId="1:775510601297:android:564c49a5454afd3a609270"
+                artifactType = "APK"
+                releaseNotes = "Latest build with fixes/features"
+                testers = "jdpinedahernandez@gmail.com, bri@example.com, cal@example.com"
+                serviceCredentialsFile="$rootDir/advancedconceptsapp-firebase-adminsdk-fbsvc-95d7ae5b25.json"
+            }
         }
         getByName("debug") {
             isMinifyEnabled = false // Usually false for debug
@@ -36,12 +43,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-        }
-        firebaseAppDistribution {
-            artifactType = "APK"
-            releaseNotes = "Latest build with fixes/features"
-            testers = "jdpinedahernandez@gmail.com, bri@example.com, cal@example.com"
-            serviceCredentialsFile="$rootDir/advancedconceptsapp-firebase-adminsdk-fbsvc-e6d2198a31.json"
         }
     }
     compileOptions {
