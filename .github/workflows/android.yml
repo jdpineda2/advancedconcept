@@ -25,7 +25,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
     - name: Build devRelease APK
-      run: ./gradlew assembleDevDebug
+      run: ./gradlew assembleDevRelease
     - name: Upload devDebug APK to Firebase App Distribution
       run: ./gradlew appDistributionUploadDevDebug
       env:
