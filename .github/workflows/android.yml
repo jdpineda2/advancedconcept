@@ -20,7 +20,19 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
+    - name: Setup Gradle Cache
+      uses: gradle/actions/setup-gradle@v3
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew build
+      run: chmod +x ./gradlew
+    - name: Build devDebug APK
+      run: ./gradlew assembleDevDebug
+    - name: Upload devDebug APK to Firebase App Distribution
+      run: ./gradlew appDistributionUploadDevDebug
+      env:
+        # Use the GitHub secret for authentication
+        FIREBASE_APP_DISTRO_TOKEN: ${{ secrets.FIREBASE_APP_DISTRO_TOKEN }}
+        # You might need to set FIREBASE_APP_ID if autodetection fails,
+        # find it in your google-services.json or Firebase project settings
+        # FIREBASE_APP_ID: "1:1234567890:android:abcdef1234567890"
+        # You can also override release notes here if needed:
+        # APP_DISTRIBUTION_RELEASE_NOTES: "CI Build: ${{ github.sha }}"
