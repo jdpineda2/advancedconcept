@@ -26,8 +26,8 @@ jobs:
       run: chmod +x ./gradlew
     - name: Build devRelease APK
       run: ./gradlew assembleDevRelease
-    - name: Upload devDebug APK to Firebase App Distribution
-      run: ./gradlew appDistributionUploadDevDebug
+    - name: Upload devRelease APK to Firebase App Distribution
+      run: ./gradlew appDistributionUploadDevRelease
       env:
         # Use the GitHub secret for authentication
         FIREBASE_APP_DISTRO_TOKEN: ${{ secrets.FIREBASE_APP_DISTRO_TOKEN }}
