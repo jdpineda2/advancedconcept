@@ -34,5 +34,5 @@ jobs:
         # You might need to set FIREBASE_APP_ID if autodetection fails,
         # find it in your google-services.json or Firebase project settings
         FIREBASE_APP_ID: "1:775510601297:android:564c49a5454afd3a609270"
-        # You can also override release notes here if needed:
+        # You can also override release notes here if needed :
         # APP_DISTRIBUTION_RELEASE_NOTES: "CI Build: ${{ github.sha }}"
