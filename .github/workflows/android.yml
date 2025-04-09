@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -26,25 +25,28 @@ jobs:
       run: chmod +x ./gradlew
     - name: Build devRelease APK
       run: ./gradlew assembleDevRelease
-      # --- New Step: Create credentials file from secret ---
+
     - name: Create Firebase Service Account File
-      # Create a temporary file in the runner's temp directory
-      # Use single quotes around the secret to handle JSON content correctly
       run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_JSON }}' > $RUNNER_TEMP/google-credentials.json
-      # Ensure the secret FIREBASE_SERVICE_ACCOUNT_KEY_JSON contains the full JSON content
+      # IMPORTANT: Double-check the secret in GitHub settings NOW.
+      # Make sure it contains the *entire* JSON content and nothing else.
+
+    # --- Debugging Step 1: Verify file exists and has content ---
+    - name: Check if Credentials File was Created
+      run: |
+        echo "Checking for credentials file at: $RUNNER_TEMP/google-credentials.json"
+        ls -l $RUNNER_TEMP/google-credentials.json # List file details (check existence, size)
+        echo "--- File Content Start ---"
+        cat $RUNNER_TEMP/google-credentials.json || echo "ERROR: Cat failed, file likely doesn't exist or is empty."
+        echo "--- File Content End ---"
+
+    # --- Debugging Step 2: Verify the environment variable value ---
+    - name: Echo Environment Variable Path
+      run: echo "GOOGLE_APPLICATION_CREDENTIALS will be set to: $RUNNER_TEMP/google-credentials.json"
 
     - name: Upload devRelease APK to Firebase App Distribution
-      run: ./gradlew appDistributionUploadDevRelease
+      # Add --stacktrace for more detailed Gradle error output
+      run: ./gradlew appDistributionUploadDevRelease --stacktrace
       env:
-        # --- Corrected Env Var ---
-        # Point GOOGLE_APPLICATION_CREDENTIALS to the file created above
         GOOGLE_APPLICATION_CREDENTIALS: $RUNNER_TEMP/google-credentials.json
-        # Use the GitHub secret for authentication
-        #FIREBASE_APP_DISTRO_TOKEN: ${{ secrets.FIREBASE_APP_DISTRO_TOKEN }}
-        # You might need to set FIREBASE_APP_ID if autodetection fails,
-        # find it in your google-services.json or Firebase project settings
         FIREBASE_APP_ID: "1:775510601297:android:564c49a5454afd3a609270"
-        # You can also override release notes here if needed :
-        # APP_DISTRIBUTION_RELEASE_NOTES: "CI Build: ${{ github.sha }}"
-        # Required: Provide the service account key JSON content directly from secrets
-        #serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_JSON }}
