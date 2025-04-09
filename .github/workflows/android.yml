@@ -36,3 +36,5 @@ jobs:
         FIREBASE_APP_ID: "1:775510601297:android:564c49a5454afd3a609270"
         # You can also override release notes here if needed :
         # APP_DISTRIBUTION_RELEASE_NOTES: "CI Build: ${{ github.sha }}"
+        # Required: Provide the service account key JSON content directly from secrets
+        serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_JSON }}
