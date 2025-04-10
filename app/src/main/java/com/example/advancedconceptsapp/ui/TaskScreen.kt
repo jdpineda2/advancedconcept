@@ -97,6 +97,5 @@ fun TaskItem(task: Task) {
                 style = MaterialTheme.typography.bodySmall
             )
         }
-        // Optional: Add delete button later
     }
 }
