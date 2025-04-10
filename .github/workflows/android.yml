@@ -28,4 +28,4 @@ jobs:
         #token: ${{secrets.FIREBASE_TOKEN}}   
         serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_JSON }}
         groups: testers
-        file: app/build/outputs/apk/prod/release/app-prod-release.apk
+        file: app/prod/release/app-prod-release.apk
