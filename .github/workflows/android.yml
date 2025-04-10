@@ -27,4 +27,4 @@ jobs:
         appId: ${{ secrets.FIREBASE_APP_ID }}
         serviceCredentialsFileContent: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY_JSON }}
         groups: testers
-        file: app/build/outputs/apk/dev/release/app-dev-release-unsigned.apk.apk
+        file: app/build/outputs/apk/dev/release/app-dev-release-unsigned.apk
