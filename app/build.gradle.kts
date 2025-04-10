@@ -29,11 +29,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro" // Our custom rules file
             )
-            firebaseAppDistribution {
-                artifactType = "APK"
-                releaseNotes = "Latest build with fixes/features"
-                testers = "jdpinedahernandez@gmail.com, bri@example.com, cal@example.com"
-            }
         }
         getByName("debug") {
             isMinifyEnabled = false // Usually false for debug
@@ -41,6 +36,11 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        firebaseAppDistribution {
+            artifactType = "APK"
+            releaseNotes = "Latest build with fixes/features"
+            testers = "jdpinedahernandez@gmail.com, bri@example.com, cal@example.com"
         }
     }
     compileOptions {
