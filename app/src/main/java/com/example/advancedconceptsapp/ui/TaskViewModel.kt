@@ -12,12 +12,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import com.example.advancedconceptsapp.BuildConfig // Import build config fields
 
-// Define collection name constants (we'll use this for flavors later)
-object FirestoreCollections {
-    const val TASKS = "tasks" // Default
-    // We might override this per flavor later
-}
-
 
 class TaskViewModel : ViewModel() {
 
